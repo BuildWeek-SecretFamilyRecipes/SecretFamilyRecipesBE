@@ -10,7 +10,10 @@ router.post('/register', (req, res) => {
 
     if(username && password) {
         Users.insert({username, password: hash})
-            .then(user => res.status(201).json(user))
+            .then(user => {
+                token = generateToken(user);
+                res.status(201).json({user, token})
+            })
             .catch(err => {
                 console.log(err);
                 res.status(500).json({error: 'Could not register user'});
@@ -19,5 +22,17 @@ router.post('/register', (req, res) => {
         res.status(400).json({message: 'Must provide username and password'});
     }
 });
+
+// generate token ###############################################################
+function generateToken(user) {
+    const payload = {
+      subject: user.id,
+      username: user.username
+    };
+    const options = {
+        expiresIn: '1d'
+    };
+    return jwt.sign(payload, secrets.jwtSecret, options);
+  }
 
 module.exports = router;
