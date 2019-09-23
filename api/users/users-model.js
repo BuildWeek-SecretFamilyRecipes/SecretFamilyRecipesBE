@@ -19,7 +19,7 @@ function getByUsername(username) {
 }
 
 function insert(user) {
-    db('users')
+    return db('users')
         .insert(user)
         .then(([id]) => getById(id));
 }
