@@ -26,9 +26,16 @@ exports.up = function(knex) {
         tbl.string('recipe_id').notNullable();
         tbl.string('ingredient_id').notNullable();
         tbl.string('measurement', 32);
+
+        tbl.primary(['recipe_id', 'ingredient_id']);
     })
 };
 
 exports.down = function(knex) {
-  
+    return knex.schema
+        .dropTableIfExists('users')
+        .dropTableIfExists('ingredients')
+        .dropTableIfExists('category')
+        .dropTableIfExists('recipes')
+        .dropTableIfExists('recipe_ingredients');
 };
