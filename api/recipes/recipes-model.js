@@ -12,27 +12,27 @@ module.exports = {
 
 function findByUser(user_id) {
     return db('recipes')
-        .select(
-            'recipes.id',
-            'recipes.title',
-            'recipes.source',
-            'category.category_name',
-            'ingredients.name',
-            'recipe_ingredients.measurement',
-            'recipes.instructions',
-        )
-        .join('category', 'category.id', 'recipes.category_id')
-        .join(
-            'recipe_ingredients', 
-            'recipes.id', 
-            'recipe_ingredients.recipe_id', 
-        )
-        .join(
-            'ingredients',
-            'ingredients.id',
-            'recipe_ingredients.ingredient_id',
-        )
-        .where({user_id: user_id})
+        // .select(
+        //     'recipes.id',
+        //     'recipes.title',
+        //     'recipes.source',
+        //     'category.category_name',
+        //     'ingredients.name',
+        //     'recipe_ingredients.measurement',
+        //     'recipes.instructions',
+        // )
+        // .join('category', 'category.id', 'recipes.category_id')
+        // .join(
+        //     'recipe_ingredients', 
+        //     'recipes.id', 
+        //     'recipe_ingredients.recipe_id', 
+        // )
+        // .join(
+        //     'ingredients',
+        //     'ingredients.id',
+        //     'recipe_ingredients.ingredient_id',
+        // )
+        .where({'recipes.user_id': user_id})
 };
 
 function findById(id) {
