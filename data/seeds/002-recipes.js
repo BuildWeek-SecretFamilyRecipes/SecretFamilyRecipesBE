@@ -9,25 +9,28 @@ exports.seed = function(knex) {
           id: 1,
           title: 'macaroni',
           source: 'grandma',
-          category_id: '2',
+          category: 'lunch',
           instructions: 'cook it',
-          user_id: '1'
+          user_id: '1',
+          ingredients: 'macaroni'
         },
         {
           id: 2,
           title: 'cereal',
           source: 'mom',
-          category_id: '1',
+          category: 'breakfast',
           instructions: 'cereal first, then milk',
-          user_id: '1'
+          user_id: '1',
+          ingredients: 'cereal, milk'
         },
         {
           id: 3,
           title: 'rice',
           source: 'mom',
-          category_id: '3',
+          category: 'dinner',
           instructions: 'cook it',
-          user_id: '2'
+          user_id: '2',
+          ingredients: 'rice'
         }
       ]);
     });
