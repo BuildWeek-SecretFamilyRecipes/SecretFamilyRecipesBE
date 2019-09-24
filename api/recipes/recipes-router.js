@@ -37,7 +37,6 @@ router.get('/users/recipes/:id', (req, res) => {
         });
 });
 
-//creating a new recipe, but not returning a body... recipe undefined..
 router.post('/users/:user_id/recipes', (req, res) => {
     const { user_id } = req.params
     const recipe = req.body;
@@ -57,10 +56,13 @@ router.put('/users/recipes/:id', (req, res) => {
     const {id} = req.params;
     const recipe = req.body;
 
-    db.edit(id, recipe)
+    db.edit(recipe, id)
         .then(recipe => {
-            console.log(recipe)
-            return res.status(200).json(recipe)
+            if(recipe) {
+                return res.status(200).json(recipe)
+            } else {
+                return res.status(400).json({message: 'not able to edit recipe'})
+            }
         })
         .catch(err => {
             console.log(err)
