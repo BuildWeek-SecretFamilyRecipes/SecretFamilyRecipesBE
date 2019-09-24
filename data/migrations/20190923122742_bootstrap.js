@@ -16,7 +16,7 @@ exports.up = function(knex) {
     // })
     .createTable('recipes', tbl => {
         tbl.increments('id');
-        tbl.string('title', 32).notNullable().unique();
+        tbl.string('title', 32).notNullable();
         tbl.string('source', 32);
         // tbl.string('category_id').notNullable();
         tbl.string('instructions');
