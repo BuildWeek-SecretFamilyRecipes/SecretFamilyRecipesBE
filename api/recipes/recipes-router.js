@@ -4,7 +4,7 @@ const db = require('./recipes-model.js');
 const router = express.Router();
 
 router.get('/:user_id', (req, res) => {
-    const user_id = req.params;
+    const { user_id } = req.params;
 
     db.findByUser(user_id)
         .then(recipes => {
