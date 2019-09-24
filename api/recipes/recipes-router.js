@@ -39,12 +39,10 @@ router.get('/users/recipes/:id', (req, res) => {
 
 //creating a new recipe, but not returning a body... recipe undefined..
 router.post('/users/:user_id/recipes', (req, res) => {
-    const {title, source, instructions, category_id}= req.body;
-    const {user_id} = req.params;
+    const { user_id } = req.params
+    const recipe = req.body;
 
-    console.log({title, source, instructions, category_id, user_id})
-
-    db.add({user_id, title, source, instructions, category_id})
+    db.add({...recipe, user_id})
         .then(recipe => {
             console.log(recipe)
             return res.status(201).json(recipe)

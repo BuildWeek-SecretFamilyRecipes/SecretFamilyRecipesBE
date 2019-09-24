@@ -5,7 +5,7 @@ module.exports = {
     edit,
     remove,
     findById, 
-    findByUser
+    findByUser,
     //findCategory,
     //addIngredients,
 };
@@ -38,28 +38,28 @@ function findByUser(user_id) {
 
 function findById(id) {
     return db('recipes')
-        .select([
-            'recipes.id',
-            'recipes.title',
-            'recipes.source',
-            'category.category_name',
-            'ingredients.name as ingredient_name',
-            'recipe_ingredients.measurement',
-            'recipes.instructions',
-            'recipes.user_id'
-        ])
-        .join('category', 'category.id', 'recipes.category_id')
-        .join(
-            'recipe_ingredients', 
-            'recipes.id', 
-            'recipe_ingredients.recipe_id', 
-        )
-        .join(
-            'ingredients',
-            'ingredients.id',
-            'recipe_ingredients.ingredient_id',
-        )
-        .where({'recipes.id': id})
+        // .select([
+        //     'recipes.id',
+        //     'recipes.title',
+        //     'recipes.source',
+        //     'category.category_name',
+        //     'ingredients.name as ingredient_name',
+        //     'recipe_ingredients.measurement',
+        //     'recipes.instructions',
+        //     'recipes.user_id'
+        // ])
+        // .join('category', 'category.id', 'recipes.category_id')
+        // .join(
+        //     'recipe_ingredients', 
+        //     'recipes.id', 
+        //     'recipe_ingredients.recipe_id', 
+        // )
+        // .join(
+        //     'ingredients',
+        //     'ingredients.id',
+        //     'recipe_ingredients.ingredient_id',
+        // )
+        .where({id: id})
         .first();
 };
 
