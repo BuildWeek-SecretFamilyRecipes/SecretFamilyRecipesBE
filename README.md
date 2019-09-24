@@ -1,4 +1,4 @@
-## Secret Family Recipes Back End
+# Secret Family Recipes Back End
 
 The Secret Family Recipes app allows users to store the most sacred recipes of there family.  It allows them to protect the recipes that have been handed down through generations.
 
@@ -11,12 +11,12 @@ Contributors:
 Desiree Q Morris - https://github.com/desiquinn
 Kevin Lopez - https://github.com/kevlpz
 
-## Endpoints
+# Endpoints
 
-# Base URL
+## Base URL
 https://secretfamilyrecipe.herokuapp.com
 
-# POST /api/auth/register
+## POST /api/auth/register
 
 * Add/Register New User
 
@@ -36,7 +36,7 @@ https://secretfamilyrecipe.herokuapp.com
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJ"
     }
 
-# POST /api/auth/login
+## POST /api/auth/login
 
 * Login User
 
@@ -56,7 +56,7 @@ https://secretfamilyrecipe.herokuapp.com
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJ"
     }
 
-# GET /api/users/:user_id/recipes
+## GET /api/users/:user_id/recipes
 
 * Get all recipes belonging to user
 
@@ -76,7 +76,7 @@ https://secretfamilyrecipe.herokuapp.com
         }
     ]
 
-# GET /api/users/recipes/:id
+## GET /api/users/recipes/:id
 
 * Get one recipe with specified id
 
@@ -95,7 +95,7 @@ https://secretfamilyrecipe.herokuapp.com
     }
 
 
-# POST /api/users/:user_id/recipes
+## POST /api/users/:user_id/recipes
 
 * Add new recipe to specified user
 
@@ -121,14 +121,14 @@ https://secretfamilyrecipe.herokuapp.com
         "ingredients": "1cup cornmeal, 1/4cup milk, 1 large egg, 1/2cup sugar, 1stick butter"
     }
 
-# DELETE /api/users/recipes/:id
+## DELETE /api/users/recipes/:id
 
 * Delete recipe of specified id
 
 * Accepts
     id: 	Recipe's ID
 
-# PUT /api/users/recipes/:id
+## PUT /api/users/recipes/:id
 
 * Edit recipe of specified id
 
