@@ -3,8 +3,8 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
-    useNullAsDefault: true,
+    client: 'pg',
+    // useNullAsDefault: true,
     connection: {
       filename: './data/recipes.db3'
     },
