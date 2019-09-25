@@ -3,8 +3,8 @@ exports.up = function(knex) {
   return knex.schema
     .createTable('users', tbl => {
         tbl.increments('id');
-        tbl.string('username', 32).notNullable().unique();
-        tbl.string('password', 32).notNullable();
+        tbl.string('username').notNullable().unique();
+        tbl.string('password').notNullable();
     })
     // .createTable('ingredients', tbl => {
     //     tbl.increments('id');
@@ -16,12 +16,12 @@ exports.up = function(knex) {
     // })
     .createTable('recipes', tbl => {
         tbl.increments('id');
-        tbl.string('title', 32).notNullable();
-        tbl.string('source', 32);
+        tbl.string('title').notNullable();
+        tbl.string('source');
         // tbl.string('category_id').notNullable();
         tbl.string('instructions');
         tbl.string('user_id').notNullable();
-        tbl.string('category', 32);
+        tbl.string('category');
         tbl.string('ingredients').notNullable();
         // 1 tsp salt
     })
