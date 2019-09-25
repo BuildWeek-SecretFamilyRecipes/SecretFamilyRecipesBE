@@ -4,12 +4,13 @@ const server = require('../server.js');
 describe('/api/auth', () => {
     describe('/register register new user', () => {
         it('should return 201', () => {
-            return request(server).post('api/auth/register')
+            expect(true).toBe(true);
+            return request(server).post('/api/auth/register')
                 .send({
-                    username: 'test',
+                    username: 'test0',
                     password: 'pass'
                 })
-                .then(res => expect(res.status).toBe(200))
+                .then(res => expect(res.status).toBe(201))
         })
     })
 })
