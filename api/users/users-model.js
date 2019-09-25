@@ -19,8 +19,8 @@ function getByUsername(username) {
 }
 
 function insert(user) {
-    console.log(user);
+    console.log('user', user);
     return db('users')
         .insert(user)
-        .then(something => console.log(something));
+        .then(([id]) => getById(id));
 }
