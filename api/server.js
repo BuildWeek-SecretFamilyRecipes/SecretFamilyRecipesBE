@@ -11,10 +11,20 @@ const server = express();
 
 server.use(express.json());
 server.use(helmet());
-server.use(cors({
+
+const whitelist = ['http://localhost:3000', 'https://secretfamilyrecipesfe.tsbiswell.now.sh'];
+const corsOptions = {
     credentials: true,
-    origin: 'http://localhost:3000, https://secretfamilyrecipesfe.tsbiswell.now.sh',
-}));
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+          callback(null, true)
+        } else {
+          callback(new Error('Not allowed by CORS'))
+        }
+    }
+};
+server.use(cors(corsOptions));
+
 server.use('/api/auth', authRouter);
 server.use('/api', authenticate, recipesRouter);
 server.use('/api/users', usersRouter);
