@@ -13,7 +13,7 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000, https://secretfamilyrecipesfe.tsbiswell.now.sh',
+    origin: 'https://secretfamilyrecipesfe.tsbiswell.now.sh',
 }));
 server.use('/api/auth', authRouter);
 server.use('/api', authenticate, recipesRouter);
