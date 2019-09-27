@@ -15,13 +15,14 @@ server.use(helmet());
 const whitelist = ['http://localhost:3000', 'https://secretfamilyrecipesfe.tsbiswell.now.sh'];
 const corsOptions = {
     credentials: true,
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-          return callback(null, true)
-        } else {
-          return callback(new Error('Not allowed by CORS'))
-        }
-    }
+    origin: 'http://localhost:3000'
+    // origin: function (origin, callback) {
+    //     if (whitelist.indexOf(origin) !== -1) {
+    //       return callback(null, true)
+    //     } else {
+    //       return callback(new Error('Not allowed by CORS'))
+    //     }
+    // }
 };
 server.use(cors(corsOptions));
 
